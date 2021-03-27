@@ -66,13 +66,7 @@ export const ReviewList = ({ data }) => {
       <Button onClick={showReviewModal}>
         후기 {reviewData.length}개 모두보기
       </Button>
-      {moreReviews && (
-        <ReviewModal
-          data={data}
-          reviewData={reviewData}
-          closeModal={closeModal}
-        />
-      )}
+      {moreReviews && <ReviewModal closeModal={closeModal} />}
     </Section>
   );
 };
@@ -180,7 +174,7 @@ const Line = styled.div`
 `;
 
 const Button = styled.button`
-  width: 18%;
+  width: 200px;
   display: inline-block;
   padding: 13px 23px;
   color: #222222;
