@@ -10,7 +10,8 @@
 
 ### bearbnb 팀원 소개
 
-- FrontEnd Developer : 정민선(PM), 김승완, 태성현
+- FrontEnd Developer : 정민선(PM), 김승완, 태성현<br />
+  (Team GitHub : https://github.com/wecode-bootcamp-korea/16-2nd-bearbnb-frontend)
 - BackEnd Developer : 김건희, 윤정민, 홍연우
 
 ### 프로젝트 기간
