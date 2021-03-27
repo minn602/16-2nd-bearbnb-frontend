@@ -20,7 +20,7 @@ export const ReviewModal = ({ closeModal }) => {
     }
   };
 
-  //componentDidMount fetch init data
+  //componentDidUpdate fetch init data
   useEffect(() => {
     fetchData(currentPostId);
   }, [currentPostId]);
