@@ -1,37 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ProfileBox from './Components/ProfileBox';
 import './Profile.scss';
 
-class Profile extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isShow: false,
-    };
-  }
+const Profile = ({ showLoginModal }) => {
+  const [isShow, setIsShow] = useState(false);
 
-  showProfileBox = () => {
-    this.setState({
-      isShow: !this.state.isShow,
-    });
+  const showProfileBox = () => {
+    setIsShow(prev => !prev);
   };
-  render() {
-    const { isShow } = this.state;
-    const { showLoginModal } = this.props;
-    return (
-      <div onClick={this.showProfileBox} className="Profile">
-        <img className="menuIcon" alt="menu" src="/images/Nav/menu.png" />
-        <img
-          className="profileIcon"
-          alt="profile"
-          src="/images/Nav/profile-user.png"
-        />
-        <div className="profileBox">
-          {isShow && <ProfileBox showLoginModal={showLoginModal} />}
-        </div>
+
+  return (
+    <div onClick={showProfileBox} className="Profile">
+      <img className="menuIcon" alt="menu" src="/images/Nav/menu.png" />
+      <img
+        className="profileIcon"
+        alt="profile"
+        src="/images/Nav/profile-user.png"
+      />
+      <div className="profileBox">
+        {isShow && <ProfileBox showLoginModal={showLoginModal} />}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Profile;
