@@ -14,39 +14,6 @@ import Guests from './Components/Guests/Guests';
 import './SearchContainer.scss';
 
 const SearchContainer = props => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     currentTab: 0,
-  //     startDate:
-  //       this.props.location.pathname === '/list'
-  //         ? moment(this.props.location.state.startDate)
-  //         : null,
-  //     endDate:
-  //       this.props.location.pathname === '/list'
-  //         ? moment(this.props.location.state.endDate)
-  //         : null,
-  //     focusedInput: null,
-  //     adult:
-  //       this.props.location.pathname === '/list'
-  //         ? this.props.location.state.adult
-  //         : 0,
-  //     child:
-  //       this.props.location.pathname === '/list'
-  //         ? this.props.location.state.child
-  //         : 0,
-  //     kid:
-  //       this.props.location.pathname === '/list'
-  //         ? this.props.location.state.kid
-  //         : 0,
-  //     searchList: [],
-  //     searchInputValue:
-  //       this.props.location.pathname === '/list'
-  //         ? this.props.location.state.searchVal
-  //         : '',
-  //   };
-  // }
-
   const [currentTab, setCurrentTab] = useState(0);
   const [startDate, setStartDate] = useState(
     props.location.pathname === '/list'
@@ -59,39 +26,12 @@ const SearchContainer = props => {
       : null
   );
   const [focusedInput, setFocusedInput] = useState(null);
-  // const [adult, setAdult] = useState(
-  //   props.location.pathname === '/list' ? props.location.state.adult : 0
-  // );
-  // const [child, setChild] = useState(
-  //   props.location.pathname === '/list' ? props.location.state.child : 0
-  // );
-  // const [kid, setKid] = useState(
-  //   props.location.pathname === '/list' ? props.location.state.kid : 0
-  // );
-  // const [guestQty, setGusetQty] = useState({
-  //   adult: props.location.pathname === '/list' ? props.location.state.adult : 0,
-  //   child: props.location.pathname === '/list' ? props.location.state.child : 0,
-  //   kid: props.location.pathname === '/list' ? props.location.state.kid : 0,
-  // });
   const [searchList, setSearchList] = useState([]);
-  // const [searchInputValue, setSearchInputValue] = useState(
-  //   props.location.pathname === '/list' ? props.location.state.searchVal : ''
-  // );
 
   //redux 적용 부분
   const searchInputValue = useSelector(state => state.locationValReducer);
   const guestQty = useSelector(state => state.guestQtyReducer);
   const dispatch = useDispatch();
-
-  // componentDidMount() {
-  //   fetch('/data/search.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         searchList: data.SEARCH_DATA,
-  //       });
-  //     });
-  // }
 
   useEffect(() => {
     fetch('/data/search.json')
@@ -102,43 +42,19 @@ const SearchContainer = props => {
   }, []);
 
   const clickTab = id => {
-    // this.setState({
-    //   currentTab: id,
-    // });
     setCurrentTab(id);
   };
 
   const onDatesChange = ({ startDate, endDate }) => {
-    // this.setState({
-    //   startDate,
-    //   endDate,
-    // });
     setStartDate(startDate);
     setEndDate(endDate);
   };
 
   const onFocusChange = focusedInput => {
-    // this.setState({
-    //   focusedInput,
-    // });
     setFocusedInput(focusedInput);
   };
 
   const controllQuantity = (evt, selectedId) => {
-    // if (evt.target.name === 'plus') {
-    //   selectedId === 'kid' && this.state.kid === 0 && this.state.adult === 0
-    //     ? this.setState(prevState => ({
-    //         adult: prevState.adult + 1,
-    //         kid: prevState.kid + 1,
-    //       }))
-    //     : this.setState(prevState => ({
-    //         [selectedId]: prevState[selectedId] + 1,
-    //       }));
-    // } else {
-    //   this.setState(prevState => ({
-    //     [selectedId]: prevState[selectedId] - 1,
-    //   }));
-    // }
     if (evt.target.name === 'plus') {
       if (selectedId === 'kid' && guestQty.kid === 0 && guestQty.adult === 0) {
         dispatch(setKidQtyAction());
@@ -151,19 +67,10 @@ const SearchContainer = props => {
   };
 
   const inputValHandler = evt => {
-    // this.setState({
-    //   searchInputValue: evt.target.value,
-    // });
-    // setSearchInputValue(evt.target.value);
     dispatch(locationSearchValAction(evt.target.value));
   };
 
   const selectLocation = selected => {
-    // this.setState({
-    //   searchInputValue: selected,
-    //   currentTab: 0,
-    // });
-    // setSearchInputValue(selected);
     dispatch(locationSearchValAction(selected));
     setCurrentTab(0);
   };
@@ -179,10 +86,6 @@ const SearchContainer = props => {
             .longitude,
           latitude: searchList.filter(list => list.gu === searchInputValue)[0]
             .latitude,
-          // adult: guestQty.adult,
-          // child: guestQty.child,
-          // kid: guestQty.kid,
-          // searchVal: searchInputValue,
         },
       });
     } else {
@@ -195,10 +98,6 @@ const SearchContainer = props => {
             .longitude,
           latitude: searchList.filter(list => list.gu === searchInputValue)[0]
             .latitude,
-          // adult: guestQty.adult,
-          // child: guestQty.child,
-          // kid: guestQty.kid,
-          // searchVal: searchInputValue,
         },
       });
     }
@@ -212,15 +111,7 @@ const SearchContainer = props => {
         selectLocation={selectLocation}
       />
     ),
-    4: (
-      <Guests
-        controllQuantity={controllQuantity}
-        // adult={adult}
-        // child={child}
-        // kid={kid}
-        guestQty={guestQty}
-      />
-    ),
+    4: <Guests controllQuantity={controllQuantity} guestQty={guestQty} />,
   };
 
   return (
@@ -229,9 +120,6 @@ const SearchContainer = props => {
         clickTab={clickTab}
         startDate={startDate}
         endDate={endDate}
-        // adult={adult}
-        // child={child}
-        // kid={kid}
         guestQty={guestQty}
         onDatesChange={onDatesChange}
         focusedInput={focusedInput}
