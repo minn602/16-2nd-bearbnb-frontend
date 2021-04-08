@@ -62,6 +62,6 @@
 - 리뷰 모달창 구현
 - axios library를 사용하여 외부 API 데이터를 받아와서 infinite scroll 기능 구현
 
-### 레퍼런스
+### :: 레퍼런스
 
 - 해당 프로젝트는 [Airbnb](https://www.airbnb.co.kr/) 사이트를 참조하여 학습목적으로 만들어졌습니다.
