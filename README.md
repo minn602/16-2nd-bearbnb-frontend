@@ -1,24 +1,25 @@
 ## 🏠bearbnb Team Project
 
-### 프로젝트 소개
+### :: 프로젝트 소개
 
 - 위코드 2주차 팀 프로젝트로 숙박 공유 경제 서비스인 [Airbnb](https://www.airbnb.co.kr/) 디자인 및 기획을 참고하여 만든 팀 프로젝트입니다.
 - 개발 초기 세팅부터 레이아웃 및 기능은 모두 직접 구현한 코드로 데모영상에서의 데이터는 실제 백엔드 서버와 연결되었을 때의 화면입니다.
   <br />
+  <br />
   (🤸‍♀️아래 이미지 클릭시 데모영상 확인가능합니다!)
   [![](https://img.youtube.com/vi/RFja9gWiVzs/maxresdefault.jpg)](https://youtu.be/RFja9gWiVzs)
 
-### bearbnb 팀원 소개
+### :: bearbnb 팀원 소개
 
 - FrontEnd Developer : 정민선(PM), 김승완, 태성현<br />
   (Team GitHub : https://github.com/wecode-bootcamp-korea/16-2nd-bearbnb-frontend)
 - BackEnd Developer : 김건희, 윤정민, 홍연우
 
-### 프로젝트 기간
+### :: 프로젝트 기간
 
-2021.01.25 ~ 2021.02.05 약 2주간 진행
+- 2021.01.25 ~ 2021.02.05 약 2주간 진행
 
-### 기술 스택
+### :: 기술 스택
 
 - HTML/CSS
 - React.js, React Hooks(CRA settings)
@@ -29,13 +30,13 @@
 - react-dates library
 - styled-components
 
-### 협업 도구
+### :: 협업 도구
 
 - Slack
 - Trello
 - Git + GitHub
 
-### 담당 페이지 및 구현한 기능
+### :: 담당 페이지 및 구현한 기능
 
 1. 메인페이지
 
